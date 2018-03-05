@@ -320,7 +320,7 @@ function startGulp(name, opts) {
   });
 
   gulp.task('release:push', function(cb) {
-    git.push('Cubey2019', 'master', {
+    git.push('vertcoin-project', 'master', {
       args: ''
     }, cb);
   });
@@ -329,7 +329,7 @@ function startGulp(name, opts) {
     var pjson = require('../../package.json');
     var name = 'v' + pjson.version;
     git.tag(name, 'Release ' + name, function() {
-      git.push('Cubey2019', name, cb);
+      git.push('vertcoin-project', name, cb);
     });
   });
 
@@ -354,7 +354,7 @@ function startGulp(name, opts) {
       browser ? 'browser' : 'noop',
       // Commit 
       'release:build-commit',
-      // Run git push Cubey2019 $VERSION
+      // Run git push vertcoin-project $VERSION
       'release:push-tag',
       // Run npm publish
       'release:publish',
